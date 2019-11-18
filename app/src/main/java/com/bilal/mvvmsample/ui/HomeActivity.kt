@@ -7,6 +7,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.bilal.mvvmsample.R
+import com.bilal.mvvmsample.data.ApixuWeatherApiService
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {

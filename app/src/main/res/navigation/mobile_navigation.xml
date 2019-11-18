@@ -10,7 +10,7 @@
 
    <!-- <fragment
         android:id="@+id/currentWeatherFragment"
-        android:name="com.resocoder.forecastmvvm.ui.weather.current.CurrentWeatherFragment"
+        android:name="com.resocoder.forecastmvvm.ui.weather.currentWeatherEntry.CurrentWeatherFragment"
         android:label="current_weather_fragment"
         tools:layout="@layout/current_weather_fragment" />
     <fragment
