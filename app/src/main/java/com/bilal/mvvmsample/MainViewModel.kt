@@ -1,6 +1,7 @@
 package com.bilal.mvvmsample
 
 import androidx.databinding.Bindable
+import androidx.databinding.Observable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,7 +10,14 @@ import androidx.lifecycle.ViewModel
  * Created by Bilal Hussain on 2019-11-11 06:51
  */
 
-class MainViewModel : ViewModel() {
+class MainViewModel : ViewModel(),Observable {
+    override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
+
+    }
+
+    override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
+
+    }
 
     val currentRandomFruitName: LiveData<String>
         get() = FakeRepository.currentRandomFruitName
