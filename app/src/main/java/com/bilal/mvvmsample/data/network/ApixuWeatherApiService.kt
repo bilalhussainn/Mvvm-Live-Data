@@ -1,6 +1,6 @@
-package com.bilal.mvvmsample.data
+package com.bilal.mvvmsample.data.network
 
-import com.bilal.mvvmsample.data.network_response.CurrentWeatherResponse
+import com.bilal.mvvmsample.data.network.response.CurrentWeatherResponse
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
@@ -24,7 +24,7 @@ interface ApixuWeatherApiService {
 
 
     companion object { //static methods
-        operator fun invoke(): ApixuWeatherApiService {
+        operator fun invoke(connectivityInterceptor: ConnectivityInterceptor): ApixuWeatherApiService {
             val reqestInterceptor = Interceptor { chain ->
                 val url = chain.request()
                     .url()
@@ -42,6 +42,8 @@ interface ApixuWeatherApiService {
 
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(reqestInterceptor)
+                .addInterceptor(connectivityInterceptor)
+               // .addInterceptor(ConnectivityInterceptorImpl()) //it creates tight coupling,later we use DI
                 .build()
 
             return Retrofit.Builder()

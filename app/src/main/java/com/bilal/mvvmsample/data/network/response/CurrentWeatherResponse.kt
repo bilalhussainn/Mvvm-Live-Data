@@ -1,4 +1,4 @@
-package com.bilal.mvvmsample.data.network_response
+package com.bilal.mvvmsample.data.network.response
 
 import com.bilal.mvvmsample.data.db.entity.CurrentWeatherEntry
 import com.bilal.mvvmsample.data.db.entity.Location

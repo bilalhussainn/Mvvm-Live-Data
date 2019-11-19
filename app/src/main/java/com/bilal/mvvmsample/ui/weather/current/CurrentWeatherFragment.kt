@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.bilal.mvvmsample.R
-import com.bilal.mvvmsample.data.ApixuWeatherApiService
+import com.bilal.mvvmsample.data.network.ApixuWeatherApiService
 import kotlinx.android.synthetic.main.current_weather_fragment.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
