@@ -1,4 +1,4 @@
-package com.bilal.mvvmsample.data.response
+package com.bilal.mvvmsample.data.db.entity
 
 
 import com.google.gson.annotations.SerializedName

@@ -1,5 +1,8 @@
-package com.bilal.mvvmsample.data.response
+package com.bilal.mvvmsample.data.network_response
 
+import com.bilal.mvvmsample.data.db.entity.CurrentWeatherEntry
+import com.bilal.mvvmsample.data.db.entity.Location
+import com.bilal.mvvmsample.data.db.entity.Request
 import com.google.gson.annotations.SerializedName
 
 

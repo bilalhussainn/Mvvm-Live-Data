@@ -1,8 +1,13 @@
-package com.bilal.mvvmsample.data.response
+package com.bilal.mvvmsample.data.db.entity
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+const val CURRENT_WEATHER_ID= 0
+
+@Entity(tableName = "current_weather")
 data class CurrentWeatherEntry(
     val cloudcover: Int,
     val feelslike: Double,
@@ -16,7 +21,7 @@ data class CurrentWeatherEntry(
     val temperature: Double,
     @SerializedName("uv_index")
     val uvIndex: Int,
-    val visibility: Int,
+    val visibility: Double,
     @SerializedName("weather_code")
     val weatherCode: Int,
     @SerializedName("weather_descriptions")
@@ -29,4 +34,7 @@ data class CurrentWeatherEntry(
     val windDir: String,
     @SerializedName("wind_speed")
     val windSpeed: Double
-)
+){
+    @PrimaryKey(autoGenerate = false)
+    var id : Int = CURRENT_WEATHER_ID
+}
