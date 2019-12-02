@@ -7,6 +7,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.bilal.mvvmsample.databinding.ActivityMainBinding
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,5 +29,15 @@ class MainActivity : AppCompatActivity() {
             Observer {
                 Toast.makeText(this@MainActivity,it,Toast.LENGTH_SHORT).show()
             })
+
+
+
+        //Coroutines
+        GlobalScope.launch {
+            delay(1000)
+            print("World")
+        }
+        print("Hello")
+        Thread.sleep(2000)
     }
 }

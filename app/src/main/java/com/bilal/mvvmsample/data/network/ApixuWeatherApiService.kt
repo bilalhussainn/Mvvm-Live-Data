@@ -18,8 +18,8 @@ interface ApixuWeatherApiService {
 
     @GET("current")
     fun getCurrentWeather(
-        @Query("query") location: String
-      //  @Query("lang") languageCOde: String = "en" //do
+        @Query("query") location: String,
+        @Query("lang") languageCOde: String = "en" //do
     ): Deferred<CurrentWeatherResponse>
 
 
@@ -41,16 +41,17 @@ interface ApixuWeatherApiService {
             }
 
             val okHttpClient = OkHttpClient.Builder()
-                .addInterceptor(reqestInterceptor)
-                .addInterceptor(connectivityInterceptor)
+                .addInterceptor(reqestInterceptor) //For adding Api Key in request
+                .addInterceptor(connectivityInterceptor) //For checking connectivity status, before api call
                // .addInterceptor(ConnectivityInterceptorImpl()) //it creates tight coupling,later we use DI
+                // .authenticator() //for authentication
                 .build()
 
             return Retrofit.Builder()
                 .client(okHttpClient)
                 .baseUrl("http://api.weatherstack.com/")
-                .addCallAdapterFactory(CoroutineCallAdapterFactory()) //for Deferred
-                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(CoroutineCallAdapterFactory()) //Using Caroutine. for Deferred  //Like RxCallAdapterFactory we use this for caroutine
+                .addConverterFactory(GsonConverterFactory.create())  //Getting response as a Model class with the help of GSON.
                 .build()
                 .create(ApixuWeatherApiService::class.java)
 

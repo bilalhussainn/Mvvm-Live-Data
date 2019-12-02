@@ -10,6 +10,7 @@ import com.bilal.mvvmsample.data.db.entity.CurrentWeatherEntry
 import com.bilal.mvvmsample.data.db.unitlocalized.ImperrialCurrentWeatherEntry
 import com.bilal.mvvmsample.data.db.unitlocalized.MetricCurrentWeatherEntry
 
+//Dao to communicate with database
 @Dao
 interface CurrentWeatherDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
